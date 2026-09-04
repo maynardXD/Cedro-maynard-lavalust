@@ -1,4 +1,4 @@
-```php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,24 +15,25 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            background: #121212;
+            color: #eaeaea;
             padding: 40px 20px;
         }
 
         .container {
             max-width: 1000px;
             margin: auto;
-            background: #fff;
+            background: #1b1b1b;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid #2a2a2a;
         }
 
         h2 {
-            font-size: 24px;
-            font-weight: 600;
+            font-size: 23px;
+            font-weight: 500;
             margin-bottom: 25px;
+            color: #ffffff;
         }
 
         table {
@@ -42,26 +43,27 @@
 
         th {
             text-align: left;
-            font-size: 13px;
-            color: #666;
-            font-weight: 600;
             padding: 14px 12px;
-            border-bottom: 2px solid #eee;
+            font-size: 13px;
+            font-weight: 500;
+            color: #999;
+            border-bottom: 1px solid #333;
         }
 
         td {
             padding: 15px 12px;
             font-size: 14px;
-            border-bottom: 1px solid #eee;
+            color: #ddd;
+            border-bottom: 1px solid #292929;
         }
 
         tr:hover td {
-            background: #fafafa;
+            background: #222;
         }
 
         .empty {
             text-align: center;
-            color: #888;
+            color: #777;
             padding: 30px;
         }
 
@@ -85,6 +87,7 @@
 <body>
 
 <div class="container">
+
     <h2>Registered Users</h2>
 
     <table>
@@ -122,8 +125,9 @@
             <?php endif; ?>
         </tbody>
     </table>
+
 </div>
 
 </body>
 </html>
-```
+
