@@ -54,11 +54,7 @@ class Middleware
     {
         $config = get_config();
 
-        if (!isset($config['middlewares'])) {
-            throw new RuntimeException('Middleware config not found.');
-        }
-
-        $this->map = $config['middlewares'];
+        $this->map = $config['middlewares'] ?? [];
     }
 
     /**
