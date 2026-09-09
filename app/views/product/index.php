@@ -6,19 +6,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Products | Product Desk</title>
     <style>
-        :root { --ink: #17212b; --muted: #65727e; --paper: #f4f0e8; --panel: #fffdf8; --line: #ded7cb; --accent: #d97706; --danger: #b42318; }
-        * { box-sizing: border-box; } body { margin: 0; min-height: 100vh; background: radial-gradient(circle at top right, #fff8e8, var(--paper) 45%); color: var(--ink); font: 16px/1.5 Georgia, serif; }
-        header, main { width: min(1100px, calc(100% - 40px)); margin: auto; } header { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 30px 0; } h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1; } .eyebrow { margin: 0 0 6px; color: var(--accent); font: 700 .78rem/1.2 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
-        a, button { font: 700 .9rem Arial, sans-serif; } a { color: inherit; } .button { display: inline-block; padding: 10px 14px; border-radius: 6px; text-decoration: none; background: var(--accent); color: #fff; } .ghost { background: transparent; border: 1px solid var(--line); color: var(--ink); }
-        .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; } .user { color: var(--muted); } .logout { display: inline; } .logout button { padding: 0; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
-        .notice { margin-bottom: 18px; padding: 12px 14px; border-left: 4px solid #198754; background: #e8f5ed; color: #14532d; } .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); box-shadow: 0 12px 28px rgba(70, 55, 35, .08); } table { width: 100%; border-collapse: collapse; min-width: 720px; } th, td { padding: 15px 16px; text-align: left; border-bottom: 1px solid var(--line); } th { color: var(--muted); font: 700 .75rem Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; } tr:last-child td { border-bottom: 0; } .description { max-width: 330px; color: var(--muted); } .actions { white-space: nowrap; } .actions a { margin-right: 12px; color: var(--accent); } .delete { display: inline; } .delete button { padding: 0; border: 0; background: none; color: var(--danger); cursor: pointer; } .empty { padding: 38px; text-align: center; color: var(--muted); }
-        @media (max-width: 600px) { header { align-items: flex-start; flex-direction: column; } .toolbar { align-items: flex-start; flex-direction: column; } main, header { width: min(100% - 28px, 1100px); } }
+        :root {
+            --bg: #0b0b0b;
+            --panel: #111111;
+            --panel-soft: #171717;
+            --line: #2a2a2a;
+            --text: #f5f5f5;
+            --muted: #a1a1a1;
+            --accent: #f5f5f5;
+            --danger: #fca5a5;
+            --success-bg: rgba(34, 197, 94, 0.12);
+            --success-text: #bbf7d0;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.5 Arial, sans-serif;
+        }
+
+        header, main { width: min(1100px, calc(100% - 40px)); margin: auto; }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 30px 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.1;
+            letter-spacing: -0.05em;
+        }
+
+        .eyebrow {
+            margin: 0 0 6px;
+            color: var(--muted);
+            font: 700 .78rem/1.2 Arial, sans-serif;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        a, button { font: 700 .9rem Arial, sans-serif; }
+        a { color: inherit; }
+
+        .button {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            background: var(--accent);
+            color: #0b0b0b;
+            border: 1px solid var(--accent);
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 18px;
+            color: var(--muted);
+        }
+
+        .logout { display: inline; }
+        .logout button {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+        }
+
+        .notice {
+            margin-bottom: 18px;
+            padding: 12px 14px;
+            border-left: 4px solid #22c55e;
+            background: var(--success-bg);
+            color: var(--success-text);
+            border-radius: 8px;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--panel);
+            box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 720px;
+        }
+
+        th, td {
+            padding: 15px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--line);
+        }
+
+        th {
+            color: var(--muted);
+            font: 700 .75rem Arial, sans-serif;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            background: var(--panel-soft);
+        }
+
+        tr:last-child td { border-bottom: 0; }
+        .description { max-width: 330px; color: var(--muted); }
+        .actions { white-space: nowrap; }
+        .actions a { margin-right: 12px; color: var(--accent); }
+        .delete { display: inline; }
+        .delete button {
+            padding: 0;
+            border: 0;
+            background: none;
+            color: var(--danger);
+            cursor: pointer;
+        }
+
+        .empty {
+            padding: 38px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        @media (max-width: 600px) {
+            header { align-items: flex-start; flex-direction: column; }
+            .toolbar { align-items: flex-start; flex-direction: column; }
+            main, header { width: min(100% - 28px, 1100px); }
+        }
     </style>
 </head>
 <body>
 <header><div><p class="eyebrow">Inventory</p><h1>Products</h1></div><a class="button" href="<?= site_url('products/create'); ?>">Add product</a></header>
 <main>
-    <div class="toolbar"><span class="user">Signed in as <?= htmlspecialchars($_SESSION['username'] ?? 'user'); ?></span><form class="logout" method="post" action="<?= site_url('logout'); ?>"><button type="submit">Sign out</button></form></div>
+    <div class="toolbar"><span>Signed in as <?= htmlspecialchars($_SESSION['username'] ?? 'user'); ?></span><form class="logout" method="post" action="<?= site_url('logout'); ?>"><button type="submit">Sign out</button></form></div>
     <?php if (!empty($message)): ?><div class="notice" role="status">Product <?= htmlspecialchars($message); ?>.</div><?php endif; ?>
     <div class="table-wrap"><table><thead><tr><th>Name</th><th>Description</th><th>Price</th><th>Quantity</th><th>Created</th><th>Actions</th></tr></thead><tbody>
     <?php if (!empty($products)): foreach ($products as $product): ?>

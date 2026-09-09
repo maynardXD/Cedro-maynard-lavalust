@@ -6,8 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= $editing ? 'Edit' : 'Add'; ?> product | Product Desk</title>
     <style>
-        :root { --ink: #17212b; --muted: #65727e; --paper: #f4f0e8; --panel: #fffdf8; --line: #ded7cb; --accent: #d97706; }
-        * { box-sizing: border-box; } body { margin: 0; min-height: 100vh; padding: 44px 20px; background: linear-gradient(135deg, #fffaf0, var(--paper)); color: var(--ink); font: 16px/1.5 Georgia, serif; } main { width: min(100%, 680px); margin: auto; } h1 { margin: 0 0 26px; font-size: clamp(2rem, 6vw, 3.2rem); } .back { color: var(--accent); font: 700 .9rem Arial, sans-serif; text-decoration: none; } form { padding: 28px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); box-shadow: 0 12px 28px rgba(70, 55, 35, .08); } label { display: block; margin: 18px 0 7px; font-weight: 700; } label:first-child { margin-top: 0; } input, textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink); font: inherit; } textarea { min-height: 130px; resize: vertical; } .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; } .error { margin-bottom: 18px; padding: 11px 13px; border-left: 4px solid #b42318; background: #fff0ed; color: #8a1c13; } .actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 26px; } .button { padding: 11px 16px; border: 0; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer; font: 700 .9rem Arial, sans-serif; text-decoration: none; } .cancel { background: transparent; border: 1px solid var(--line); color: var(--ink); } @media (max-width: 560px) { .grid { grid-template-columns: 1fr; gap: 0; } }
+        :root {
+            --bg: #0b0b0b;
+            --panel: #111111;
+            --panel-soft: #171717;
+            --line: #2a2a2a;
+            --text: #f5f5f5;
+            --muted: #a1a1a1;
+            --field: #121212;
+            --accent: #f5f5f5;
+            --danger-bg: rgba(239, 68, 68, 0.12);
+            --danger-text: #fecaca;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 44px 20px;
+            background: var(--bg);
+            color: var(--text);
+            font: 16px/1.5 Arial, sans-serif;
+        }
+
+        main {
+            width: min(100%, 680px);
+            margin: auto;
+        }
+
+        h1 {
+            margin: 0 0 26px;
+            font-size: clamp(2rem, 6vw, 3rem);
+            letter-spacing: -0.05em;
+        }
+
+        .back {
+            color: var(--muted);
+            font: 700 .9rem Arial, sans-serif;
+            text-decoration: none;
+        }
+
+        form {
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--panel);
+            box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+        }
+
+        label {
+            display: block;
+            margin: 18px 0 7px;
+            font-weight: 700;
+            color: var(--muted);
+        }
+
+        label:first-child { margin-top: 0; }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--field);
+            color: var(--text);
+            font: inherit;
+        }
+
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.35);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+        }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+        .error {
+            margin-bottom: 18px;
+            padding: 11px 13px;
+            border-left: 4px solid #ef4444;
+            background: var(--danger-bg);
+            color: var(--danger-text);
+            border-radius: 8px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: 26px;
+        }
+
+        .button {
+            padding: 11px 16px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--accent);
+            color: #0b0b0b;
+            cursor: pointer;
+            font: 700 .9rem Arial, sans-serif;
+            text-decoration: none;
+        }
+
+        .cancel {
+            background: transparent;
+            border: 1px solid var(--line);
+            color: var(--text);
+        }
+
+        @media (max-width: 560px) {
+            .grid { grid-template-columns: 1fr; gap: 0; }
+        }
     </style>
 </head>
 <body>

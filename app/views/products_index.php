@@ -10,15 +10,34 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Product Manager</title>
     <style>
+        :root {
+            --bg: #0b0b0b;
+            --panel: #111111;
+            --panel-strong: #171717;
+            --panel-soft: #1b1b1b;
+            --border: #2b2b2b;
+            --text: #f5f5f5;
+            --muted: #a1a1a1;
+            --subtle: #d4d4d4;
+            --success-bg: rgba(34, 197, 94, 0.12);
+            --success-text: #bbf7d0;
+            --error-bg: rgba(239, 68, 68, 0.12);
+            --error-text: #fecaca;
+            --shadow: rgba(0, 0, 0, 0.35);
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #f4f7fb 0%, #e8edf5 100%);
-            color: #1f2937;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             padding: 2.5rem 1.5rem;
         }
-        .wrap { max-width: 1000px; margin: 0 auto; }
+
+        .wrap { max-width: 1100px; margin: 0 auto; }
+
         .topbar {
             display: flex;
             align-items: center;
@@ -27,44 +46,140 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
             margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
-        h1 { font-size: 1.6rem; }
-        .actions { display: flex; gap: .6rem; align-items: center; }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+        }
+
+        .actions {
+            display: flex;
+            gap: .7rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .user-meta {
+            font-size: .82rem;
+            color: var(--muted);
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .badge {
+            background: var(--panel-soft);
+            color: var(--subtle);
+            padding: .2rem .55rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            font-size: .72rem;
+        }
+
         .btn {
             display: inline-block;
-            padding: .55rem 1rem;
+            padding: .62rem 1rem;
             border-radius: 8px;
-            font-size: .85rem;
+            font-size: .84rem;
             font-weight: 600;
             text-decoration: none;
-            border: none;
+            border: 1px solid var(--border);
             cursor: pointer;
+            transition: all 0.2s ease;
         }
-        .btn-primary { background: #2563eb; color: #fff; }
-        .btn-primary:hover { background: #1d4ed8; }
-        .btn-muted { background: #e5e7eb; color: #1f2937; }
-        .btn-muted:hover { background: #d1d5db; }
-        .btn-danger { background: #dc2626; color: #fff; }
-        .btn-danger:hover { background: #b91c1c; }
-        .btn-sm { padding: .4rem .75rem; font-size: .8rem; }
-        .msg { padding: .7rem .9rem; border-radius: 8px; font-size: .85rem; margin-bottom: 1.25rem; }
-        .msg.success { background: #dcfce7; color: #166534; }
-        .msg.error { background: #fee2e2; color: #991b1b; }
+
+        .btn-primary {
+            background: #f5f5f5;
+            color: #0b0b0b;
+            border-color: #f5f5f5;
+        }
+
+        .btn-primary:hover { filter: brightness(0.9); }
+
+        .btn-muted {
+            background: var(--panel-soft);
+            color: var(--text);
+        }
+
+        .btn-muted:hover { background: #1f1f1f; }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.12);
+            color: #fecaca;
+            border-color: rgba(239, 68, 68, 0.35);
+        }
+
+        .btn-danger:hover { background: rgba(239, 68, 68, 0.18); }
+
+        .btn-sm { padding: .42rem .72rem; font-size: .78rem; }
+
+        .msg {
+            padding: .8rem 1rem;
+            border-radius: 10px;
+            font-size: .85rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border);
+        }
+
+        .msg.success {
+            background: var(--success-bg);
+            color: var(--success-text);
+        }
+
+        .msg.error {
+            background: var(--error-bg);
+            color: var(--error-text);
+        }
+
         .panel {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            background: var(--panel);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            box-shadow: 0 18px 48px var(--shadow);
             overflow: hidden;
         }
+
         table { width: 100%; border-collapse: collapse; }
-        th, td { padding: .85rem 1.1rem; text-align: left; font-size: .9rem; }
-        th { background: #2563eb; color: #fff; font-weight: 600; }
-        tbody tr:nth-child(even) { background: #f8fafc; }
-        tbody tr:hover { background: #eef2ff; }
-        td { border-bottom: 1px solid #f1f5f9; }
-        td.desc { max-width: 260px; color: #4b5563; }
+
+        th, td {
+            padding: .9rem 1.1rem;
+            text-align: left;
+            font-size: .9rem;
+        }
+
+        th {
+            background: var(--panel-strong);
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+            font-size: .72rem;
+        }
+
+        tbody tr:nth-child(even) { background: rgba(255,255,255,0.01); }
+        tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+        td {
+            border-bottom: 1px solid var(--border);
+            color: var(--subtle);
+        }
+
+        td.desc { max-width: 260px; color: var(--muted); }
         td.numeric { text-align: right; white-space: nowrap; }
-        .row-actions { display: flex; gap: .5rem; }
-        .empty { padding: 2rem; text-align: center; color: #6b7280; }
+
+        .row-actions {
+            display: flex;
+            gap: .5rem;
+            align-items: center;
+        }
+
+        .empty {
+            padding: 2rem;
+            text-align: center;
+            color: var(--muted);
+        }
+
         form.inline { display: inline; }
     </style>
 </head>
@@ -73,10 +188,10 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
     <div class="topbar">
         <h1>Products</h1>
         <div class="actions">
-            <span style="font-size:.85rem;color:#6b7280;">
+            <span class="user-meta">
                 Signed in as <strong><?= htmlspecialchars($_SESSION['username'] ?? ''); ?></strong>
                 <?php if (!$is_admin): ?>
-                    <span style="background:#e5e7eb;color:#4b5563;padding:.15rem .5rem;border-radius:6px;font-size:.75rem;margin-left:.4rem;">view only</span>
+                    <span class="badge">view only</span>
                 <?php endif; ?>
             </span>
             <?php if ($is_admin): ?>

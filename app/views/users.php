@@ -7,6 +7,16 @@
     <title>User List</title>
 
     <style>
+        :root {
+            --bg: #0b0b0b;
+            --panel: #111111;
+            --panel-soft: #171717;
+            --border: #2a2a2a;
+            --text: #f5f5f5;
+            --muted: #a1a1a1;
+            --subtle: #d4d4d4;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -15,25 +25,27 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #121212;
-            color: #eaeaea;
+            background: var(--bg);
+            color: var(--text);
             padding: 40px 20px;
         }
 
         .container {
             max-width: 1000px;
             margin: auto;
-            background: #1b1b1b;
+            background: var(--panel);
             padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
         }
 
         h2 {
             font-size: 23px;
             font-weight: 500;
             margin-bottom: 25px;
-            color: #ffffff;
+            color: var(--text);
+            letter-spacing: -0.04em;
         }
 
         table {
@@ -44,26 +56,28 @@
         th {
             text-align: left;
             padding: 14px 12px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #999;
-            border-bottom: 1px solid #333;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--muted);
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         td {
             padding: 15px 12px;
             font-size: 14px;
-            color: #ddd;
-            border-bottom: 1px solid #292929;
+            color: var(--subtle);
+            border-bottom: 1px solid #1e1e1e;
         }
 
-        tr:hover td {
-            background: #222;
+        tbody tr:hover td {
+            background: rgba(255,255,255,0.02);
         }
 
         .empty {
             text-align: center;
-            color: #777;
+            color: var(--muted);
             padding: 30px;
         }
 
