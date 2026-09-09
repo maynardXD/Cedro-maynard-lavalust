@@ -8,52 +8,113 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | Product Manager</title>
     <style>
+        :root {
+            --bg: #0b0b0b;
+            --panel: #111111;
+            --border: #2a2a2a;
+            --text: #f5f5f5;
+            --muted: #a1a1a1;
+            --field: #121212;
+            --error-bg: rgba(239, 68, 68, 0.12);
+            --error-text: #fecaca;
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #f4f7fb 0%, #e8edf5 100%);
-            color: #1f2937;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
         }
+
         .card {
-            background: #fff;
+            background: var(--panel);
             width: 100%;
             max-width: 380px;
             padding: 2.25rem 2rem;
             border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            box-shadow: 0 18px 48px rgba(0,0,0,0.35);
         }
-        h1 { font-size: 1.4rem; margin-bottom: .35rem; }
-        p.subtitle { color: #6b7280; font-size: .88rem; margin-bottom: 1.5rem; }
-        label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .35rem; }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: .45rem;
+            letter-spacing: -0.04em;
+        }
+
+        p.subtitle {
+            color: var(--muted);
+            font-size: .88rem;
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: .85rem;
+            font-weight: 600;
+            margin-bottom: .35rem;
+            color: var(--muted);
+        }
+
         input {
             width: 100%;
-            padding: .65rem .8rem;
-            border: 1px solid #d1d5db;
+            padding: .75rem .8rem;
+            border: 1px solid var(--border);
             border-radius: 8px;
             font-size: .95rem;
             margin-bottom: 1rem;
+            background: var(--field);
+            color: var(--text);
         }
-        input:focus { outline: none; border-color: #2563eb; }
+
+        input:focus {
+            outline: none;
+            border-color: rgba(255,255,255,0.35);
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+        }
+
         button {
             width: 100%;
-            padding: .7rem;
-            background: #2563eb;
-            color: #fff;
+            padding: .78rem;
+            background: #f5f5f5;
+            color: #0b0b0b;
             border: none;
             border-radius: 8px;
             font-size: .95rem;
             font-weight: 600;
             cursor: pointer;
         }
-        button:hover { background: #1d4ed8; }
-        .msg.error { padding: .7rem .9rem; border-radius: 8px; font-size: .85rem; margin-bottom: 1rem; background: #fee2e2; color: #991b1b; }
-        .footer-link { text-align: center; margin-top: 1.25rem; font-size: .85rem; color: #6b7280; }
-        .footer-link a { color: #2563eb; text-decoration: none; font-weight: 600; }
+
+        button:hover { filter: brightness(0.9); }
+
+        .msg.error {
+            padding: .7rem .9rem;
+            border-radius: 8px;
+            font-size: .85rem;
+            margin-bottom: 1rem;
+            background: var(--error-bg);
+            color: var(--error-text);
+            border: 1px solid var(--border);
+        }
+
+        .footer-link {
+            text-align: center;
+            margin-top: 1.25rem;
+            font-size: .85rem;
+            color: var(--muted);
+        }
+
+        .footer-link a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
