@@ -67,6 +67,18 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
             letter-spacing: -0.06em;
         }
 
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
         a.back {
             font-size: .82rem;
             color: var(--muted);
@@ -80,7 +92,7 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
             letter-spacing: 0.08em;
             text-transform: uppercase;
             font-weight: 600;
-            margin-bottom: .45rem;
+            margin: 0;
             color: var(--muted);
         }
 
@@ -109,6 +121,12 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
         }
 
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: .25rem;
+        }
 
         button {
             padding: .85rem 1.4rem;
@@ -163,27 +181,33 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
     <?php endif; ?>
 
     <form method="post" action="<?= $form_action; ?>">
-        <label for="product_name">Product Name</label>
-        <input type="text" id="product_name" name="product_name" maxlength="100" required
-               value="<?= htmlspecialchars($product['product_name'] ?? ''); ?>" autofocus>
+        <div class="field">
+            <label for="product_name">Product Name</label>
+            <input type="text" id="product_name" name="product_name" maxlength="100" required
+                   value="<?= htmlspecialchars($product['product_name'] ?? ''); ?>" autofocus>
+        </div>
 
-        <label for="description">Description</label>
-        <textarea id="description" name="description"><?= htmlspecialchars($product['description'] ?? ''); ?></textarea>
+        <div class="field">
+            <label for="description">Description</label>
+            <textarea id="description" name="description"><?= htmlspecialchars($product['description'] ?? ''); ?></textarea>
+        </div>
 
         <div class="row">
-            <div>
+            <div class="field">
                 <label for="price">Price</label>
                 <input type="number" id="price" name="price" step="0.01" min="0" required
                        value="<?= htmlspecialchars($product['price'] ?? ''); ?>">
             </div>
-            <div>
+            <div class="field">
                 <label for="quantity">Quantity</label>
                 <input type="number" id="quantity" name="quantity" step="1" min="0" required
                        value="<?= htmlspecialchars($product['quantity'] ?? ''); ?>">
             </div>
         </div>
 
-        <button type="submit"><?= $is_edit ? 'Save Changes' : 'Add Product'; ?></button>
+        <div class="actions">
+            <button type="submit"><?= $is_edit ? 'Save Changes' : 'Add Product'; ?></button>
+        </div>
     </form>
 </div>
 </body>

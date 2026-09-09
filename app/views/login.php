@@ -37,12 +37,16 @@
         }
 
         main {
-            width: min(100%, 420px);
+            width: min(100%, 440px);
             padding: 34px 30px 28px;
             background: var(--panel);
             border: 1px solid var(--line);
-            border-radius: 18px;
+            border-radius: 20px;
             box-shadow: 0 18px 60px var(--shadow);
+        }
+
+        .head {
+            margin-bottom: 1.5rem;
         }
 
         h1 {
@@ -53,7 +57,7 @@
 
         p {
             color: var(--muted);
-            margin: 0 0 24px;
+            margin: 0;
             font-size: 0.96rem;
         }
 
@@ -61,6 +65,12 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.42rem;
         }
 
         label {
@@ -90,9 +100,15 @@
             box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
         }
 
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 0.25rem;
+        }
+
         button {
-            width: 100%;
-            margin-top: 8px;
+            width: auto;
+            min-width: 140px;
             padding: 13px 16px;
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 10px;
@@ -122,15 +138,23 @@
 </head>
 <body>
 <main>
-    <h1>Product Desk</h1>
-    <p>Sign in to manage the product inventory.</p>
+    <div class="head">
+        <h1>Product Desk</h1>
+        <p>Sign in to manage the product inventory.</p>
+    </div>
     <?php if (!empty($error)): ?><div class="error" role="alert"><?= htmlspecialchars($error); ?></div><?php endif; ?>
     <form method="post" action="<?= site_url('login'); ?>">
-        <label for="username">Username</label>
-        <input id="username" name="username" type="text" required autocomplete="username">
-        <label for="password">Password</label>
-        <input id="password" name="password" type="password" required autocomplete="current-password">
-        <button type="submit">Sign in</button>
+        <div class="field">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" required autocomplete="username">
+        </div>
+        <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required autocomplete="current-password">
+        </div>
+        <div class="actions">
+            <button type="submit">Sign in</button>
+        </div>
     </form>
 </main>
 </body>

@@ -45,23 +45,28 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         .card {
             background: var(--panel);
             width: 100%;
-            max-width: 410px;
-            padding: 2.2rem 2rem 1.9rem;
-            border-radius: 18px;
+            max-width: 440px;
+            padding: 2.2rem 2rem 1.8rem;
+            border-radius: 20px;
             border: 1px solid var(--line);
             box-shadow: 0 18px 60px var(--shadow);
         }
 
+        .header {
+            margin-bottom: 1.5rem;
+        }
+
         h1 {
-            font-size: 1.7rem;
-            margin-bottom: .5rem;
+            font-size: 1.8rem;
+            margin-bottom: .45rem;
             letter-spacing: -0.06em;
+            line-height: 1.1;
         }
 
         p.subtitle {
             color: var(--muted);
-            font-size: .9rem;
-            margin-bottom: 1.5rem;
+            font-size: .92rem;
+            line-height: 1.6;
         }
 
         form {
@@ -70,22 +75,27 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
             gap: 1rem;
         }
 
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: .42rem;
+        }
+
         label {
             display: block;
-            font-size: .7rem;
-            font-weight: 600;
-            margin-bottom: .3rem;
+            font-size: .68rem;
+            font-weight: 700;
             color: var(--muted);
-            letter-spacing: 0.08em;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
         }
 
         input {
             width: 100%;
-            padding: .85rem .9rem;
+            padding: .88rem .95rem;
             border: 1px solid var(--line);
-            border-radius: 10px;
-            font-size: .95rem;
+            border-radius: 12px;
+            font-size: .96rem;
             background: var(--field);
             color: var(--text);
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -93,22 +103,28 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
         input:focus {
             outline: none;
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.22);
             box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
         }
 
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: .25rem;
+        }
+
         button {
-            width: 100%;
-            padding: .9rem 1rem;
+            width: auto;
+            min-width: 140px;
+            padding: .85rem 1.25rem;
             background: var(--button);
             color: var(--button-text);
             border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: .95rem;
             font-weight: 700;
             cursor: pointer;
             transition: transform 0.18s ease, filter 0.18s ease;
-            margin-top: .25rem;
         }
 
         button:hover {

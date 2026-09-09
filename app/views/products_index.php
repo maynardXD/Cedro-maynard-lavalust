@@ -44,7 +44,7 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
 
         .topbar {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
             gap: 1rem;
             margin-bottom: 1.5rem;
@@ -61,7 +61,9 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
             display: flex;
             gap: .7rem;
             align-items: center;
+            justify-content: flex-end;
             flex-wrap: wrap;
+            margin-left: auto;
         }
 
         .user-meta {
