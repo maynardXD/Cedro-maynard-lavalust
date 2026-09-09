@@ -11,26 +11,29 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
     <title>Products | Product Manager</title>
     <style>
         :root {
-            --bg: #0b0b0b;
+            --bg: #050505;
+            --bg-soft: #0d0d0d;
             --panel: #111111;
             --panel-strong: #171717;
             --panel-soft: #1b1b1b;
-            --border: #2b2b2b;
-            --text: #f5f5f5;
-            --muted: #a1a1a1;
+            --line: rgba(255,255,255,0.08);
+            --text: #f5f5f4;
+            --muted: #9f9f9f;
             --subtle: #d4d4d4;
-            --success-bg: rgba(34, 197, 94, 0.12);
+            --success-bg: rgba(34, 197, 94, 0.08);
             --success-text: #bbf7d0;
             --error-bg: rgba(239, 68, 68, 0.12);
             --error-text: #fecaca;
-            --shadow: rgba(0, 0, 0, 0.35);
+            --shadow: rgba(0,0,0,0.55);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: var(--bg);
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             min-height: 100vh;
             padding: 2.5rem 1.5rem;
@@ -48,9 +51,9 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         }
 
         h1 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.05em;
         }
 
         .actions {
@@ -69,40 +72,45 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         }
 
         .badge {
-            background: var(--panel-soft);
+            background: rgba(255,255,255,0.03);
             color: var(--subtle);
             padding: .2rem .55rem;
             border-radius: 999px;
-            border: 1px solid var(--border);
+            border: 1px solid var(--line);
             font-size: .72rem;
         }
 
         .btn {
             display: inline-block;
             padding: .62rem 1rem;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: .84rem;
             font-weight: 600;
             text-decoration: none;
-            border: 1px solid var(--border);
+            border: 1px solid var(--line);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: transform 0.18s ease, background 0.18s ease;
         }
 
         .btn-primary {
             background: #f5f5f5;
             color: #0b0b0b;
-            border-color: #f5f5f5;
+            border-color: rgba(255,255,255,0.12);
         }
 
-        .btn-primary:hover { filter: brightness(0.9); }
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            filter: brightness(0.96);
+        }
 
         .btn-muted {
-            background: var(--panel-soft);
+            background: rgba(255,255,255,0.02);
             color: var(--text);
         }
 
-        .btn-muted:hover { background: #1f1f1f; }
+        .btn-muted:hover {
+            background: rgba(255,255,255,0.04);
+        }
 
         .btn-danger {
             background: rgba(239, 68, 68, 0.12);
@@ -110,7 +118,9 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
             border-color: rgba(239, 68, 68, 0.35);
         }
 
-        .btn-danger:hover { background: rgba(239, 68, 68, 0.18); }
+        .btn-danger:hover {
+            background: rgba(239, 68, 68, 0.18);
+        }
 
         .btn-sm { padding: .42rem .72rem; font-size: .78rem; }
 
@@ -119,7 +129,7 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
             border-radius: 10px;
             font-size: .85rem;
             margin-bottom: 1.25rem;
-            border: 1px solid var(--border);
+            border: 1px solid var(--line);
         }
 
         .msg.success {
@@ -133,11 +143,12 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         }
 
         .panel {
-            background: var(--panel);
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            box-shadow: 0 18px 48px var(--shadow);
+            background: rgba(17,17,17,0.9);
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            box-shadow: 0 24px 60px var(--shadow);
             overflow: hidden;
+            backdrop-filter: blur(8px);
         }
 
         table { width: 100%; border-collapse: collapse; }
@@ -149,10 +160,10 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         }
 
         th {
-            background: var(--panel-strong);
+            background: rgba(255,255,255,0.02);
             color: var(--muted);
             font-weight: 600;
-            letter-spacing: .03em;
+            letter-spacing: .08em;
             text-transform: uppercase;
             font-size: .72rem;
         }
@@ -161,7 +172,7 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         tbody tr:hover { background: rgba(255,255,255,0.03); }
 
         td {
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--line);
             color: var(--subtle);
         }
 

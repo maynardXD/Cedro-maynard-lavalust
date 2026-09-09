@@ -8,13 +8,14 @@
 
     <style>
         :root {
-            --bg: #0b0b0b;
+            --bg: #050505;
+            --bg-soft: #0d0d0d;
             --panel: #111111;
-            --panel-soft: #171717;
-            --border: #2a2a2a;
-            --text: #f5f5f5;
-            --muted: #a1a1a1;
+            --line: rgba(255,255,255,0.08);
+            --text: #f5f5f4;
+            --muted: #9f9f9f;
             --subtle: #d4d4d4;
+            --shadow: rgba(0,0,0,0.55);
         }
 
         * {
@@ -25,7 +26,9 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: var(--bg);
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             padding: 40px 20px;
         }
@@ -33,11 +36,12 @@
         .container {
             max-width: 1000px;
             margin: auto;
-            background: var(--panel);
+            background: rgba(17,17,17,0.9);
             padding: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            box-shadow: 0 24px 60px var(--shadow);
+            backdrop-filter: blur(8px);
         }
 
         h2 {
@@ -59,16 +63,17 @@
             font-size: 12px;
             font-weight: 600;
             color: var(--muted);
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid var(--line);
             text-transform: uppercase;
             letter-spacing: 0.08em;
+            background: rgba(255,255,255,0.02);
         }
 
         td {
             padding: 15px 12px;
             font-size: 14px;
             color: var(--subtle);
-            border-bottom: 1px solid #1e1e1e;
+            border-bottom: 1px solid var(--line);
         }
 
         tbody tr:hover td {

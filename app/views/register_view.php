@@ -9,21 +9,25 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <title>Register | Product Manager</title>
     <style>
         :root {
-            --bg: #0b0b0b;
+            --bg: #050505;
+            --bg-soft: #0d0d0d;
             --panel: #111111;
-            --border: #2a2a2a;
-            --text: #f5f5f5;
-            --muted: #a1a1a1;
-            --field: #121212;
+            --line: rgba(255,255,255,0.08);
+            --text: #f5f5f4;
+            --muted: #9f9f9f;
+            --field: #0f0f0f;
             --error-bg: rgba(239, 68, 68, 0.12);
             --error-text: #fecaca;
+            --shadow: rgba(0,0,0,0.55);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: var(--bg);
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             min-height: 100vh;
             display: flex;
@@ -33,74 +37,82 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         }
 
         .card {
-            background: var(--panel);
+            background: rgba(17,17,17,0.9);
             width: 100%;
-            max-width: 380px;
+            max-width: 390px;
             padding: 2.25rem 2rem;
-            border-radius: 14px;
-            border: 1px solid var(--border);
-            box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            box-shadow: 0 24px 60px var(--shadow);
+            backdrop-filter: blur(8px);
         }
 
         h1 {
-            font-size: 1.5rem;
-            margin-bottom: .45rem;
-            letter-spacing: -0.04em;
+            font-size: 1.6rem;
+            margin-bottom: .5rem;
+            letter-spacing: -0.05em;
         }
 
         p.subtitle {
             color: var(--muted);
-            font-size: .88rem;
+            font-size: .9rem;
             margin-bottom: 1.5rem;
         }
 
         label {
             display: block;
-            font-size: .85rem;
-            font-weight: 600;
-            margin-bottom: .35rem;
+            font-size: .76rem;
+            font-weight: 700;
+            margin-bottom: .42rem;
             color: var(--muted);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }
 
         input {
             width: 100%;
-            padding: .75rem .8rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            padding: .8rem .85rem;
+            border: 1px solid var(--line);
+            border-radius: 10px;
             font-size: .95rem;
             margin-bottom: 1rem;
             background: var(--field);
             color: var(--text);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         input:focus {
             outline: none;
-            border-color: rgba(255,255,255,0.35);
-            box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
         }
 
         button {
             width: 100%;
-            padding: .78rem;
+            padding: .8rem;
             background: #f5f5f5;
             color: #0b0b0b;
-            border: none;
-            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 10px;
             font-size: .95rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
+            transition: transform 0.18s ease, filter 0.18s ease;
         }
 
-        button:hover { filter: brightness(0.9); }
+        button:hover {
+            filter: brightness(0.96);
+            transform: translateY(-1px);
+        }
 
         .msg.error {
-            padding: .7rem .9rem;
-            border-radius: 8px;
+            padding: .72rem .9rem;
+            border-radius: 10px;
             font-size: .85rem;
             margin-bottom: 1rem;
             background: var(--error-bg);
             color: var(--error-text);
-            border: 1px solid var(--border);
+            border: 1px solid var(--line);
         }
 
         .footer-link {

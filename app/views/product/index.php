@@ -7,16 +7,18 @@
     <title>Products | Product Desk</title>
     <style>
         :root {
-            --bg: #0b0b0b;
+            --bg: #050505;
+            --bg-soft: #0d0d0d;
             --panel: #111111;
             --panel-soft: #171717;
-            --line: #2a2a2a;
-            --text: #f5f5f5;
-            --muted: #a1a1a1;
+            --line: rgba(255,255,255,0.08);
+            --text: #f5f5f4;
+            --muted: #9f9f9f;
             --accent: #f5f5f5;
             --danger: #fca5a5;
-            --success-bg: rgba(34, 197, 94, 0.12);
+            --success-bg: rgba(34, 197, 94, 0.08);
             --success-text: #bbf7d0;
+            --shadow: rgba(0,0,0,0.55);
         }
 
         * { box-sizing: border-box; }
@@ -24,7 +26,9 @@
         body {
             margin: 0;
             min-height: 100vh;
-            background: var(--bg);
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             font: 16px/1.5 Arial, sans-serif;
         }
@@ -59,11 +63,17 @@
         .button {
             display: inline-block;
             padding: 10px 14px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
-            background: var(--accent);
+            background: #f5f5f5;
             color: #0b0b0b;
-            border: 1px solid var(--accent);
+            border: 1px solid rgba(255,255,255,0.12);
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+            filter: brightness(0.96);
         }
 
         .toolbar {
@@ -90,15 +100,16 @@
             border-left: 4px solid #22c55e;
             background: var(--success-bg);
             color: var(--success-text);
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
         .table-wrap {
             overflow-x: auto;
             border: 1px solid var(--line);
-            border-radius: 12px;
-            background: var(--panel);
-            box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+            border-radius: 16px;
+            background: rgba(17,17,17,0.9);
+            box-shadow: 0 24px 60px var(--shadow);
+            backdrop-filter: blur(8px);
         }
 
         table {
@@ -118,7 +129,7 @@
             font: 700 .75rem Arial, sans-serif;
             letter-spacing: .08em;
             text-transform: uppercase;
-            background: var(--panel-soft);
+            background: rgba(255,255,255,0.02);
         }
 
         tr:last-child td { border-bottom: 0; }
