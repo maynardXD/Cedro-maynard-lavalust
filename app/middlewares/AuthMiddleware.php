@@ -127,17 +127,3 @@ class AuthMiddleware
         return $next();
     }
 }
-
-class StudentMiddleware
-{
-    public function handle(Closure $next)
-    {
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-
-        $_SESSION['student_access'] = true;
-
-        return $next();
-    }
-}
