@@ -8,12 +8,11 @@
     <style>
         :root {
             --bg: #050505;
-            --bg-soft: #0d0d0d;
-            --panel: #111111;
-            --panel-soft: #171717;
+            --bg-soft: #0f0f0f;
+            --panel: rgba(18, 18, 18, 0.9);
             --line: rgba(255,255,255,0.08);
             --text: #f5f5f4;
-            --muted: #9f9f9f;
+            --muted: #a3a3a3;
             --accent: #f5f5f5;
             --danger: #fca5a5;
             --success-bg: rgba(34, 197, 94, 0.08);
@@ -27,7 +26,7 @@
             margin: 0;
             min-height: 100vh;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             font: 16px/1.5 Arial, sans-serif;
@@ -63,11 +62,11 @@
         .button {
             display: inline-block;
             padding: 10px 14px;
-            border-radius: 10px;
+            border-radius: 12px;
             text-decoration: none;
             background: #f5f5f5;
             color: #0b0b0b;
-            border: 1px solid rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.08);
             transition: transform 0.18s ease, filter 0.18s ease;
         }
 
@@ -106,10 +105,10 @@
         .table-wrap {
             overflow-x: auto;
             border: 1px solid var(--line);
-            border-radius: 16px;
-            background: rgba(17,17,17,0.9);
-            box-shadow: 0 24px 60px var(--shadow);
-            backdrop-filter: blur(8px);
+            border-radius: 18px;
+            background: var(--panel);
+            box-shadow: 0 22px 70px var(--shadow);
+            backdrop-filter: blur(6px);
         }
 
         table {

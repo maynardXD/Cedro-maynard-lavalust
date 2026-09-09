@@ -8,16 +8,17 @@
     <style>
         :root {
             --bg: #050505;
-            --bg-soft: #0d0d0d;
-            --panel: #111111;
-            --panel-strong: #171717;
+            --bg-soft: #0f0f0f;
+            --panel: rgba(18, 18, 18, 0.9);
             --line: rgba(255,255,255,0.08);
             --text: #f5f5f4;
-            --muted: #9f9f9f;
-            --field: #0f0f0f;
-            --shadow: rgba(0,0,0,0.55);
-            --error-bg: rgba(239, 68, 68, 0.12);
+            --muted: #a3a3a3;
+            --field: #0b0b0b;
+            --button: #f5f5f5;
+            --button-text: #111111;
+            --error-bg: rgba(248, 113, 113, 0.08);
             --error-text: #fecaca;
+            --shadow: rgba(0,0,0,0.55);
         }
 
         * { box-sizing: border-box; }
@@ -30,7 +31,7 @@
             padding: 24px;
             font: 16px/1.5 Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
         }
@@ -38,17 +39,17 @@
         main {
             width: min(100%, 420px);
             padding: 34px 30px 28px;
-            background: rgba(17,17,17,0.9);
+            background: var(--panel);
             border: 1px solid var(--line);
-            border-radius: 18px;
-            box-shadow: 0 24px 60px var(--shadow);
-            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            box-shadow: 0 22px 70px var(--shadow);
+            backdrop-filter: blur(6px);
         }
 
         h1 {
             margin: 0 0 8px;
             font: 700 2rem/1.1 Arial, sans-serif;
-            letter-spacing: -0.06em;
+            letter-spacing: -0.07em;
         }
 
         p {
@@ -62,8 +63,8 @@
             margin: 18px 0 8px;
             font-weight: 700;
             color: var(--muted);
-            font-size: 0.8rem;
-            letter-spacing: 0.04em;
+            font-size: 0.72rem;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
         }
 
@@ -71,7 +72,7 @@
             width: 100%;
             padding: 13px 14px;
             border: 1px solid var(--line);
-            border-radius: 10px;
+            border-radius: 12px;
             background: var(--field);
             color: var(--text);
             font: inherit;
@@ -80,18 +81,18 @@
 
         input:focus {
             outline: none;
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
         }
 
         button {
             width: 100%;
             margin-top: 24px;
             padding: 13px 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 10px;
-            background: #f5f5f5;
-            color: #090909;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            background: var(--button);
+            color: var(--button-text);
             cursor: pointer;
             font-weight: 700;
             font: inherit;

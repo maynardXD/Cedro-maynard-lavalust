@@ -9,12 +9,12 @@
     <style>
         :root {
             --bg: #050505;
-            --bg-soft: #0d0d0d;
-            --panel: #111111;
+            --bg-soft: #0f0f0f;
+            --panel: rgba(18, 18, 18, 0.9);
             --line: rgba(255,255,255,0.08);
             --text: #f5f5f4;
-            --muted: #9f9f9f;
-            --subtle: #d4d4d4;
+            --muted: #a3a3a3;
+            --subtle: #d9d9d9;
             --shadow: rgba(0,0,0,0.55);
         }
 
@@ -27,7 +27,7 @@
         body {
             font-family: Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             padding: 40px 20px;
@@ -36,12 +36,12 @@
         .container {
             max-width: 1000px;
             margin: auto;
-            background: rgba(17,17,17,0.9);
+            background: var(--panel);
             padding: 30px;
-            border-radius: 18px;
+            border-radius: 20px;
             border: 1px solid var(--line);
-            box-shadow: 0 24px 60px var(--shadow);
-            backdrop-filter: blur(8px);
+            box-shadow: 0 22px 70px var(--shadow);
+            backdrop-filter: blur(6px);
         }
 
         h2 {

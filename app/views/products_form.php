@@ -13,15 +13,17 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
     <style>
         :root {
             --bg: #050505;
-            --bg-soft: #0d0d0d;
-            --panel: #111111;
+            --bg-soft: #0f0f0f;
+            --panel: rgba(18, 18, 18, 0.9);
             --line: rgba(255,255,255,0.08);
             --text: #f5f5f4;
-            --muted: #9f9f9f;
-            --field: #0f0f0f;
+            --muted: #a3a3a3;
+            --field: #0b0b0b;
+            --button: #f5f5f5;
+            --button-text: #111111;
             --success-bg: rgba(34, 197, 94, 0.08);
             --success-text: #bbf7d0;
-            --error-bg: rgba(239, 68, 68, 0.12);
+            --error-bg: rgba(248, 113, 113, 0.08);
             --error-text: #fecaca;
             --shadow: rgba(0,0,0,0.55);
         }
@@ -31,7 +33,7 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             min-height: 100vh;
@@ -41,15 +43,15 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
         }
 
         .card {
-            background: rgba(17,17,17,0.9);
+            background: var(--panel);
             width: 100%;
             max-width: 560px;
             padding: 2rem;
-            border-radius: 18px;
+            border-radius: 20px;
             border: 1px solid var(--line);
-            box-shadow: 0 24px 60px var(--shadow);
+            box-shadow: 0 22px 70px var(--shadow);
             height: fit-content;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(6px);
         }
 
         .topline {
@@ -61,9 +63,9 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
         }
 
         h1 {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 600;
-            letter-spacing: -0.05em;
+            letter-spacing: -0.06em;
         }
 
         a.back {
@@ -75,8 +77,8 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
 
         label {
             display: block;
-            font-size: .76rem;
-            letter-spacing: 0.06em;
+            font-size: .72rem;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
             font-weight: 700;
             margin-bottom: .45rem;
@@ -87,7 +89,7 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
             width: 100%;
             padding: .78rem .85rem;
             border: 1px solid var(--line);
-            border-radius: 10px;
+            border-radius: 12px;
             font-size: .95rem;
             margin-bottom: 1rem;
             font-family: inherit;
@@ -103,18 +105,18 @@ $form_action = $is_edit ? base_url('products/edit/' . $product['id']) : base_url
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
         }
 
         .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
         button {
             padding: .85rem 1.4rem;
-            background: #f5f5f5;
-            color: #0b0b0b;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 10px;
+            background: var(--button);
+            color: var(--button-text);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
             font-size: .92rem;
             font-weight: 700;
             cursor: pointer;

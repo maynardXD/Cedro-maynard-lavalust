@@ -8,14 +8,14 @@
     <style>
         :root {
             --bg: #050505;
-            --bg-soft: #0d0d0d;
-            --panel: #111111;
+            --bg-soft: #0f0f0f;
+            --panel: rgba(18, 18, 18, 0.9);
             --line: rgba(255,255,255,0.08);
             --text: #f5f5f4;
-            --muted: #9f9f9f;
-            --field: #0f0f0f;
+            --muted: #a3a3a3;
+            --field: #0b0b0b;
             --accent: #f5f5f5;
-            --danger-bg: rgba(239, 68, 68, 0.12);
+            --danger-bg: rgba(248, 113, 113, 0.08);
             --danger-text: #fecaca;
             --shadow: rgba(0,0,0,0.55);
         }
@@ -27,7 +27,7 @@
             min-height: 100vh;
             padding: 44px 20px;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 28%),
+                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             font: 16px/1.5 Arial, sans-serif;
@@ -53,10 +53,10 @@
         form {
             padding: 28px;
             border: 1px solid var(--line);
-            border-radius: 18px;
-            background: rgba(17,17,17,0.9);
-            box-shadow: 0 24px 60px var(--shadow);
-            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            background: var(--panel);
+            box-shadow: 0 22px 70px var(--shadow);
+            backdrop-filter: blur(6px);
         }
 
         label {
@@ -65,7 +65,7 @@
             font-weight: 700;
             color: var(--muted);
             font-size: .78rem;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.09em;
             text-transform: uppercase;
         }
 
@@ -75,7 +75,7 @@
             width: 100%;
             padding: 12px 14px;
             border: 1px solid var(--line);
-            border-radius: 10px;
+            border-radius: 12px;
             background: var(--field);
             color: var(--text);
             font: inherit;
@@ -89,8 +89,8 @@
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
         }
 
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -113,8 +113,8 @@
 
         .button {
             padding: 11px 16px;
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
             background: var(--accent);
             color: #0b0b0b;
             cursor: pointer;
