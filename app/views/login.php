@@ -7,18 +7,19 @@
     <title>Sign in | Product Desk</title>
     <style>
         :root {
-            --bg: #050505;
-            --bg-soft: #0f0f0f;
-            --panel: rgba(18, 18, 18, 0.9);
-            --line: rgba(255,255,255,0.08);
-            --text: #f5f5f4;
-            --muted: #a3a3a3;
-            --field: #0b0b0b;
-            --button: #f5f5f5;
-            --button-text: #111111;
-            --error-bg: rgba(248, 113, 113, 0.08);
+            --bg: #081120;
+            --bg-soft: #101b2f;
+            --panel: rgba(15, 23, 42, 0.82);
+            --line: rgba(148, 163, 184, 0.22);
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --field: rgba(15, 23, 42, 0.9);
+            --button: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%);
+            --button-text: #f8fafc;
+            --error-bg: rgba(239, 68, 68, 0.12);
             --error-text: #fecaca;
-            --shadow: rgba(0,0,0,0.55);
+            --shadow: rgba(15, 23, 42, 0.35);
+            --shadow-strong: rgba(79, 70, 229, 0.25);
         }
 
         * { box-sizing: border-box; }
@@ -31,7 +32,8 @@
             padding: 24px;
             font: 16px/1.5 Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
+                radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.12), transparent 25%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
         }
@@ -39,11 +41,11 @@
         main {
             width: min(100%, 420px);
             padding: 34px 30px 28px;
-            background: var(--panel);
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
             border: 1px solid var(--line);
-            border-radius: 20px;
-            box-shadow: 0 22px 70px var(--shadow);
-            backdrop-filter: blur(6px);
+            border-radius: 24px;
+            box-shadow: 0 24px 80px var(--shadow), 0 0 0 1px rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
         }
 
         h1 {
@@ -73,35 +75,38 @@
             padding: 13px 14px;
             border: 1px solid var(--line);
             border-radius: 12px;
-            background: var(--field);
+            background: rgba(15, 23, 42, 0.92);
             color: var(--text);
             font: inherit;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
 
         input:focus {
             outline: none;
-            border-color: rgba(255,255,255,0.18);
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
+            border-color: rgba(96, 165, 250, 0.8);
+            box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.12);
+            transform: translateY(-1px);
         }
 
         button {
             width: 100%;
             margin-top: 24px;
             padding: 13px 16px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(139, 92, 246, 0.5);
             border-radius: 12px;
             background: var(--button);
             color: var(--button-text);
             cursor: pointer;
             font-weight: 700;
             font: inherit;
-            transition: transform 0.18s ease, filter 0.18s ease;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+            box-shadow: 0 12px 28px rgba(79, 70, 229, 0.24);
         }
 
         button:hover {
-            filter: brightness(0.96);
+            filter: brightness(1.03);
             transform: translateY(-1px);
+            box-shadow: 0 16px 32px rgba(79, 70, 229, 0.3);
         }
 
         .error {

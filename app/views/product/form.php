@@ -7,17 +7,18 @@
     <title><?= $editing ? 'Edit' : 'Add'; ?> product | Product Desk</title>
     <style>
         :root {
-            --bg: #050505;
-            --bg-soft: #0f0f0f;
-            --panel: rgba(18, 18, 18, 0.9);
-            --line: rgba(255,255,255,0.08);
-            --text: #f5f5f4;
-            --muted: #a3a3a3;
-            --field: #0b0b0b;
-            --accent: #f5f5f5;
-            --danger-bg: rgba(248, 113, 113, 0.08);
+            --bg: #081120;
+            --bg-soft: #101b2f;
+            --panel: rgba(15, 23, 42, 0.82);
+            --line: rgba(148, 163, 184, 0.22);
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --field: rgba(15, 23, 42, 0.9);
+            --accent: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%);
+            --danger-bg: rgba(239, 68, 68, 0.12);
             --danger-text: #fecaca;
-            --shadow: rgba(0,0,0,0.55);
+            --shadow: rgba(15, 23, 42, 0.35);
+            --shadow-strong: rgba(79, 70, 229, 0.25);
         }
 
         * { box-sizing: border-box; }
@@ -27,7 +28,8 @@
             min-height: 100vh;
             padding: 44px 20px;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
+                radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.12), transparent 25%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             font: 16px/1.5 Arial, sans-serif;
@@ -53,10 +55,10 @@
         form {
             padding: 28px;
             border: 1px solid var(--line);
-            border-radius: 20px;
-            background: var(--panel);
-            box-shadow: 0 22px 70px var(--shadow);
-            backdrop-filter: blur(6px);
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
+            box-shadow: 0 24px 80px var(--shadow), 0 0 0 1px rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
         }
 
         label {
@@ -76,10 +78,10 @@
             padding: 12px 14px;
             border: 1px solid var(--line);
             border-radius: 12px;
-            background: var(--field);
+            background: rgba(15, 23, 42, 0.92);
             color: var(--text);
             font: inherit;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
 
         textarea {
@@ -89,8 +91,9 @@
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: rgba(255,255,255,0.18);
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
+            border-color: rgba(96, 165, 250, 0.8);
+            box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.12);
+            transform: translateY(-1px);
         }
 
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -113,19 +116,20 @@
 
         .button {
             padding: 11px 16px;
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(139, 92, 246, 0.5);
             border-radius: 12px;
             background: var(--accent);
-            color: #0b0b0b;
+            color: #f8fafc;
             cursor: pointer;
             font: 700 .9rem Arial, sans-serif;
             text-decoration: none;
-            transition: transform 0.18s ease, filter 0.18s ease;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+            box-shadow: 0 12px 28px rgba(79, 70, 229, 0.24);
         }
 
         .button:hover {
             transform: translateY(-1px);
-            filter: brightness(0.96);
+            box-shadow: 0 16px 32px rgba(79, 70, 229, 0.3);
         }
 
         .cancel {

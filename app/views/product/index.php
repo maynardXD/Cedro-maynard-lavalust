@@ -7,17 +7,17 @@
     <title>Products | Product Desk</title>
     <style>
         :root {
-            --bg: #050505;
-            --bg-soft: #0f0f0f;
-            --panel: rgba(18, 18, 18, 0.9);
-            --line: rgba(255,255,255,0.08);
-            --text: #f5f5f4;
-            --muted: #a3a3a3;
-            --accent: #f5f5f5;
+            --bg: #081120;
+            --bg-soft: #101b2f;
+            --panel: rgba(15, 23, 42, 0.82);
+            --line: rgba(148, 163, 184, 0.22);
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --accent: #8b5cf6;
             --danger: #fca5a5;
-            --success-bg: rgba(34, 197, 94, 0.08);
+            --success-bg: rgba(16, 185, 129, 0.12);
             --success-text: #bbf7d0;
-            --shadow: rgba(0,0,0,0.55);
+            --shadow: rgba(15, 23, 42, 0.35);
         }
 
         * { box-sizing: border-box; }
@@ -26,7 +26,8 @@
             margin: 0;
             min-height: 100vh;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
+                radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(45, 212, 191, 0.12), transparent 25%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             font: 16px/1.5 Arial, sans-serif;
@@ -64,15 +65,16 @@
             padding: 10px 14px;
             border-radius: 12px;
             text-decoration: none;
-            background: #f5f5f5;
-            color: #0b0b0b;
-            border: 1px solid rgba(255,255,255,0.08);
-            transition: transform 0.18s ease, filter 0.18s ease;
+            background: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%);
+            color: #f8fafc;
+            border: 1px solid rgba(139, 92, 246, 0.5);
+            box-shadow: 0 12px 28px rgba(79, 70, 229, 0.24);
+            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
         }
 
         .button:hover {
             transform: translateY(-1px);
-            filter: brightness(0.96);
+            box-shadow: 0 16px 32px rgba(79, 70, 229, 0.3);
         }
 
         .toolbar {
@@ -105,10 +107,10 @@
         .table-wrap {
             overflow-x: auto;
             border: 1px solid var(--line);
-            border-radius: 18px;
-            background: var(--panel);
-            box-shadow: 0 22px 70px var(--shadow);
-            backdrop-filter: blur(6px);
+            border-radius: 22px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
+            box-shadow: 0 24px 80px var(--shadow), 0 0 0 1px rgba(255,255,255,0.03);
+            backdrop-filter: blur(10px);
         }
 
         table {

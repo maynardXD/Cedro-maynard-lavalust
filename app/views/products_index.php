@@ -11,18 +11,21 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
     <title>Products | Product Manager</title>
     <style>
         :root {
-            --bg: #050505;
-            --bg-soft: #0f0f0f;
-            --panel: rgba(18, 18, 18, 0.9);
-            --line: rgba(255,255,255,0.08);
-            --text: #f5f5f4;
-            --muted: #a3a3a3;
-            --subtle: #d9d9d9;
-            --success-bg: rgba(34, 197, 94, 0.08);
+            --bg: #081120;
+            --bg-soft: #101b2f;
+            --panel: rgba(15, 23, 42, 0.82);
+            --line: rgba(148, 163, 184, 0.22);
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --subtle: #cbd5e1;
+            --success-bg: rgba(16, 185, 129, 0.12);
             --success-text: #bbf7d0;
-            --error-bg: rgba(248, 113, 113, 0.08);
+            --error-bg: rgba(239, 68, 68, 0.12);
             --error-text: #fecaca;
-            --shadow: rgba(0,0,0,0.55);
+            --shadow: rgba(15, 23, 42, 0.35);
+            --primary: #8b5cf6;
+            --primary-strong: #4f46e5;
+            --primary-soft: rgba(139, 92, 246, 0.12);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,7 +33,8 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 30%),
+                radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(45, 212, 191, 0.12), transparent 25%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             min-height: 100vh;
@@ -87,27 +91,28 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
             text-decoration: none;
             border: 1px solid var(--line);
             cursor: pointer;
-            transition: transform 0.18s ease, background 0.18s ease;
+            transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
         }
 
         .btn-primary {
-            background: #f5f5f5;
-            color: #0b0b0b;
-            border-color: rgba(255,255,255,0.08);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-strong) 100%);
+            color: #f8fafc;
+            border-color: rgba(139, 92, 246, 0.6);
+            box-shadow: 0 12px 26px rgba(79, 70, 229, 0.24);
         }
 
         .btn-primary:hover {
             transform: translateY(-1px);
-            filter: brightness(0.96);
+            box-shadow: 0 18px 32px rgba(79, 70, 229, 0.28);
         }
 
         .btn-muted {
-            background: rgba(255,255,255,0.02);
+            background: rgba(148, 163, 184, 0.08);
             color: var(--text);
         }
 
         .btn-muted:hover {
-            background: rgba(255,255,255,0.04);
+            background: rgba(148, 163, 184, 0.12);
         }
 
         .btn-danger {
@@ -141,12 +146,12 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         }
 
         .panel {
-            background: var(--panel);
-            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
+            border-radius: 22px;
             border: 1px solid var(--line);
-            box-shadow: 0 22px 70px var(--shadow);
+            box-shadow: 0 24px 80px var(--shadow), 0 0 0 1px rgba(255,255,255,0.03);
             overflow: hidden;
-            backdrop-filter: blur(6px);
+            backdrop-filter: blur(10px);
         }
 
         table { width: 100%; border-collapse: collapse; }
