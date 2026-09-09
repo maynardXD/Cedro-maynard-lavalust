@@ -14,18 +14,18 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --lava: #8b5cf6;
-            --lava-dim: #6d4ce7;
-            --lava-glow: rgba(139,92,246,0.15);
-            --lava-glow-strong: rgba(139,92,246,0.25);
-            --bg: #07111d;
-            --bg2: #0d1a2d;
-            --bg3: #111f35;
-            --border: rgba(148,163,184,0.14);
-            --border-hot: rgba(139,92,246,0.4);
-            --text: #edf2ff;
-            --text-muted: #9aa8c6;
-            --text-dim: #74829c;
+            --lava: #2dd4bf;
+            --lava-dim: #14b8a6;
+            --lava-glow: rgba(45,212,191,0.15);
+            --lava-glow-strong: rgba(45,212,191,0.25);
+            --bg: #061d1f;
+            --bg2: #0c2a2f;
+            --bg3: #10363d;
+            --border: rgba(110,231,183,0.14);
+            --border-hot: rgba(45,212,191,0.4);
+            --text: #ecfeff;
+            --text-muted: #9dd5d0;
+            --text-dim: #6db2ae;
             --mono: 'JetBrains Mono', monospace;
             --sans: 'Unbounded', sans-serif;
         }

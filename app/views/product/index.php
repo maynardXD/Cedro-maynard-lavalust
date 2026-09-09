@@ -7,17 +7,17 @@
     <title>Products | Product Desk</title>
     <style>
         :root {
-            --bg: #081120;
-            --bg-soft: #101b2f;
-            --panel: rgba(15, 23, 42, 0.82);
-            --line: rgba(148, 163, 184, 0.22);
-            --text: #e2e8f0;
-            --muted: #94a3b8;
-            --accent: #8b5cf6;
+            --bg: #06181a;
+            --bg-soft: #0d2a2c;
+            --panel: rgba(13, 36, 38, 0.82);
+            --line: rgba(94, 234, 212, 0.2);
+            --text: #ecfeff;
+            --muted: #9ed9d0;
+            --accent: #14b8a6;
             --danger: #fca5a5;
             --success-bg: rgba(16, 185, 129, 0.12);
-            --success-text: #bbf7d0;
-            --shadow: rgba(15, 23, 42, 0.35);
+            --success-text: #d1fae5;
+            --shadow: rgba(6, 24, 26, 0.45);
         }
 
         * { box-sizing: border-box; }
@@ -26,8 +26,8 @@
             margin: 0;
             min-height: 100vh;
             background:
-                radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 30%),
-                radial-gradient(circle at bottom left, rgba(45, 212, 191, 0.12), transparent 25%),
+                radial-gradient(circle at top, rgba(20, 184, 166, 0.22), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.14), transparent 25%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             font: 16px/1.5 Arial, sans-serif;
@@ -65,8 +65,8 @@
             padding: 10px 14px;
             border-radius: 12px;
             text-decoration: none;
-            background: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%);
-            color: #f8fafc;
+            background: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);
+            color: #f0fdfa;
             border: 1px solid rgba(139, 92, 246, 0.5);
             box-shadow: 0 12px 28px rgba(79, 70, 229, 0.24);
             transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;

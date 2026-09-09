@@ -11,21 +11,21 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
     <title>Products | Product Manager</title>
     <style>
         :root {
-            --bg: #081120;
-            --bg-soft: #101b2f;
-            --panel: rgba(15, 23, 42, 0.82);
-            --line: rgba(148, 163, 184, 0.22);
-            --text: #e2e8f0;
-            --muted: #94a3b8;
-            --subtle: #cbd5e1;
+            --bg: #06181a;
+            --bg-soft: #0d2a2c;
+            --panel: rgba(13, 36, 38, 0.82);
+            --line: rgba(94, 234, 212, 0.2);
+            --text: #ecfeff;
+            --muted: #9ed9d0;
+            --subtle: #d7f8f4;
             --success-bg: rgba(16, 185, 129, 0.12);
-            --success-text: #bbf7d0;
-            --error-bg: rgba(239, 68, 68, 0.12);
-            --error-text: #fecaca;
-            --shadow: rgba(15, 23, 42, 0.35);
-            --primary: #8b5cf6;
-            --primary-strong: #4f46e5;
-            --primary-soft: rgba(139, 92, 246, 0.12);
+            --success-text: #d1fae5;
+            --error-bg: rgba(251, 113, 133, 0.12);
+            --error-text: #ffe4e6;
+            --shadow: rgba(6, 24, 26, 0.45);
+            --primary: #14b8a6;
+            --primary-strong: #0ea5e9;
+            --primary-soft: rgba(20, 184, 166, 0.12);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,8 +33,8 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 30%),
-                radial-gradient(circle at bottom left, rgba(45, 212, 191, 0.12), transparent 25%),
+                radial-gradient(circle at top, rgba(20, 184, 166, 0.22), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.14), transparent 25%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             min-height: 100vh;
@@ -96,7 +96,7 @@ $is_admin = (($_SESSION['role'] ?? null) === 'admin');
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-strong) 100%);
-            color: #f8fafc;
+            color: #f0fdfa;
             border-color: rgba(139, 92, 246, 0.6);
             box-shadow: 0 12px 26px rgba(79, 70, 229, 0.24);
         }

@@ -7,19 +7,19 @@
     <title>Sign in | Product Desk</title>
     <style>
         :root {
-            --bg: #081120;
-            --bg-soft: #101b2f;
-            --panel: rgba(15, 23, 42, 0.82);
-            --line: rgba(148, 163, 184, 0.22);
-            --text: #e2e8f0;
-            --muted: #94a3b8;
-            --field: rgba(15, 23, 42, 0.9);
-            --button: linear-gradient(135deg, #8b5cf6 0%, #4f46e5 100%);
-            --button-text: #f8fafc;
-            --error-bg: rgba(239, 68, 68, 0.12);
-            --error-text: #fecaca;
-            --shadow: rgba(15, 23, 42, 0.35);
-            --shadow-strong: rgba(79, 70, 229, 0.25);
+            --bg: #06181a;
+            --bg-soft: #0d2a2c;
+            --panel: rgba(13, 36, 38, 0.82);
+            --line: rgba(94, 234, 212, 0.2);
+            --text: #ecfeff;
+            --muted: #9ed9d0;
+            --field: rgba(15, 35, 37, 0.95);
+            --button: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);
+            --button-text: #f0fdfa;
+            --error-bg: rgba(251, 113, 133, 0.12);
+            --error-text: #ffe4e6;
+            --shadow: rgba(6, 24, 26, 0.45);
+            --shadow-strong: rgba(20, 184, 166, 0.2);
         }
 
         * { box-sizing: border-box; }
@@ -32,8 +32,8 @@
             padding: 24px;
             font: 16px/1.5 Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(99, 102, 241, 0.2), transparent 30%),
-                radial-gradient(circle at bottom right, rgba(45, 212, 191, 0.12), transparent 25%),
+                radial-gradient(circle at top, rgba(20, 184, 166, 0.22), transparent 30%),
+                radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.14), transparent 25%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
         }
