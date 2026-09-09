@@ -8,16 +8,16 @@
 
     <style>
         :root {
-            --bg: #06181a;
-            --bg-soft: #0d2a2c;
-            --panel: rgba(13, 36, 38, 0.82);
-            --line: rgba(94, 234, 212, 0.2);
-            --text: #ecfeff;
-            --muted: #9ed9d0;
-            --subtle: #d7f8f4;
-            --shadow: rgba(6, 24, 26, 0.45);
-            --primary: #14b8a6;
-            --primary-strong: #0ea5e9;
+            --bg: #050505;
+            --bg-soft: #0d0d0d;
+            --panel: rgba(18, 18, 18, 0.92);
+            --line: rgba(255,255,255,0.08);
+            --text: #f5f5f5;
+            --muted: #a1a1aa;
+            --subtle: #e4e4e7;
+            --shadow: rgba(0,0,0,0.5);
+            --primary: #ffffff;
+            --primary-strong: #eeeeee;
         }
 
         * {
@@ -29,8 +29,7 @@
         body {
             font-family: Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(20, 184, 166, 0.22), transparent 30%),
-                radial-gradient(circle at bottom left, rgba(14, 165, 233, 0.14), transparent 25%),
+                radial-gradient(circle at top, rgba(255,255,255,0.03), transparent 30%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             padding: 40px 20px;
@@ -39,12 +38,11 @@
         .container {
             max-width: 1000px;
             margin: auto;
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
+            background: var(--panel);
             padding: 30px;
-            border-radius: 24px;
+            border-radius: 18px;
             border: 1px solid var(--line);
-            box-shadow: 0 24px 80px var(--shadow), 0 0 0 1px rgba(255,255,255,0.03);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 60px var(--shadow);
         }
 
         h2 {

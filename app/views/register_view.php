@@ -9,19 +9,18 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
     <title>Register | Product Manager</title>
     <style>
         :root {
-            --bg: #06181a;
-            --bg-soft: #0d2a2c;
-            --panel: rgba(13, 36, 38, 0.82);
-            --line: rgba(94, 234, 212, 0.2);
-            --text: #ecfeff;
-            --muted: #9ed9d0;
-            --field: rgba(15, 35, 37, 0.95);
-            --button: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);
-            --button-text: #f0fdfa;
-            --error-bg: rgba(251, 113, 133, 0.12);
-            --error-text: #ffe4e6;
-            --shadow: rgba(6, 24, 26, 0.45);
-            --shadow-strong: rgba(20, 184, 166, 0.2);
+            --bg: #050505;
+            --bg-soft: #0d0d0d;
+            --panel: rgba(18, 18, 18, 0.92);
+            --line: rgba(255,255,255,0.08);
+            --text: #f5f5f5;
+            --muted: #a1a1aa;
+            --field: #0b0b0b;
+            --button: #ffffff;
+            --button-text: #111111;
+            --error-bg: rgba(255,255,255,0.03);
+            --error-text: #f5f5f5;
+            --shadow: rgba(0,0,0,0.5);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,8 +28,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background:
-                radial-gradient(circle at top, rgba(20, 184, 166, 0.22), transparent 30%),
-                radial-gradient(circle at bottom right, rgba(14, 165, 233, 0.14), transparent 25%),
+                radial-gradient(circle at top, rgba(255,255,255,0.03), transparent 30%),
                 linear-gradient(180deg, var(--bg-soft), var(--bg));
             color: var(--text);
             min-height: 100vh;
@@ -41,14 +39,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
         }
 
         .card {
-            background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
+            background: var(--panel);
             width: 100%;
-            max-width: 390px;
-            padding: 2.25rem 2rem;
-            border-radius: 24px;
+            max-width: 410px;
+            padding: 2.2rem 2rem 1.9rem;
+            border-radius: 18px;
             border: 1px solid var(--line);
-            box-shadow: 0 24px 80px var(--shadow), 0 0 0 1px rgba(255,255,255,0.03);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 18px 60px var(--shadow);
         }
 
         h1 {
@@ -63,53 +60,56 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
             margin-bottom: 1.5rem;
         }
 
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
         label {
             display: block;
-            font-size: .72rem;
-            font-weight: 700;
-            margin-bottom: .42rem;
+            font-size: .7rem;
+            font-weight: 600;
+            margin-bottom: .3rem;
             color: var(--muted);
-            letter-spacing: 0.09em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
         input {
             width: 100%;
-            padding: .8rem .85rem;
+            padding: .85rem .9rem;
             border: 1px solid var(--line);
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: .95rem;
-            margin-bottom: 1rem;
-            background: rgba(15, 23, 42, 0.92);
+            background: var(--field);
             color: var(--text);
-            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         input:focus {
             outline: none;
-            border-color: rgba(96, 165, 250, 0.8);
-            box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.12);
-            transform: translateY(-1px);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 0 0 3px rgba(255,255,255,0.03);
         }
 
         button {
             width: 100%;
-            padding: .9rem;
+            padding: .9rem 1rem;
             background: var(--button);
             color: var(--button-text);
-            border: 1px solid rgba(139, 92, 246, 0.5);
-            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
             font-size: .95rem;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
-            box-shadow: 0 12px 28px var(--shadow-strong);
+            transition: transform 0.18s ease, filter 0.18s ease;
+            margin-top: .25rem;
         }
 
         button:hover {
-            filter: brightness(1.03);
+            filter: brightness(0.96);
             transform: translateY(-1px);
-            box-shadow: 0 16px 32px var(--shadow-strong);
         }
 
         .msg.error {
