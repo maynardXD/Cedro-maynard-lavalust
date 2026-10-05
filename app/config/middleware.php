@@ -41,19 +41,12 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | Used for adding middlewares
 |
 */
-foreach (['AuthMiddleware', 'AdminMiddleware', 'StudentMiddleware'] as $middleware_class) {
-    $class_file = APP_DIR . 'middlewares/' . $middleware_class . '.php';
-    if (file_exists($class_file) && !class_exists($middleware_class, false)) {
-        require_once $class_file;
-    }
-}
+require_once APP_DIR . 'middlewares/StudentMiddleware.php';
+require_once APP_DIR . 'middlewares/AuthMiddleware.php';
+require_once APP_DIR . 'middlewares/AdminMiddleware.php';
 
 $config['middlewares'] = [
-    'auth' => new AuthMiddleware(),
-    'admin' => new AdminMiddleware(),
-    'authmiddleware' => new AuthMiddleware(),
-    'adminmiddleware' => new AdminMiddleware(),
-    'StudentMiddleware' => new StudentMiddleware(),
     'student' => new StudentMiddleware(),
-    'studentmiddleware' => new StudentMiddleware(),
+    'auth'    => new AuthMiddleware(),
+    'admin'   => new AdminMiddleware(),
 ];
